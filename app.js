@@ -1,16 +1,6 @@
 //Javascript File
 //Fun Property of Noah Asher Smith
 
-
-//For Later Use
-//If Missed
-      // if(missed === 5){
-      //   parent.style.display = "flex";
-      // }
-//
-
-
-
 //Variables
   const title = document.querySelector('.title');
 
