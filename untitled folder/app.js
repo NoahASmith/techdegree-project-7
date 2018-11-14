@@ -2,14 +2,6 @@
 //Fun Property of Noah Asher Smith
 
 
-//For Later Use
-//If Missed
-      // if(missed === 5){
-      //   parent.style.display = "flex";
-      // }
-//
-
-
 
 //Variables
   const title = document.querySelector('.title');
@@ -28,15 +20,6 @@
   let missed = 0;
 //
 
-
-//EVENT LISTENERS
-  // THE GAME OVERLAY BUTTON CLICK
-    start.addEventListener('click', (e) => {
-        overlay.style.display = 'none';
-      });
-
-
-
 // PHRASES
   const phrases = [
     "yogi bear",
@@ -47,13 +30,18 @@
   ];
 //
 
+//EVENT LISTENERS
+  // THE GAME OVERLAY BUTTON CLICK
+    start.addEventListener('click', (e) => {
+        overlay.style.display = 'none';
+      });
 
 // FUNCTIONS
   // PHRASE FUNCTIONS
     // CHOOSE A RANDOM FUNCTION
       function getRandomPhraseArray(arr){
-          let phrase = arr[Math.floor(Math.random()*arr.length)];
-          let splitPhrase = phrase.split('');
+          let randPhrase = arr[Math.floor(Math.random()*arr.length)];
+          let splitPhrase = randPhrase.split('');
           return(splitPhrase);
       }
     // VARIABLE TO CALL THE RANDOM PHRASE FUNCTION
@@ -65,16 +53,13 @@
           let li = document.createElement('li');
           li.textContent = arr[i];
           phraseUL.appendChild(li);
-          if (arr[i] != ' '){
+          if (arr[i] != ''){
             li.classList.add('letter');
           } else {
             li.classList.add('space');
           }
         }
       }
-
-    // CONSOLE LOG THE PHRASE
-      console.log(phraseArray);
 
     // CALLING THE ADDPHRASETODISPLAY FUNCTION USING THE PHRASEARRAY VARIABLE
       addPhraseToDisplay(phraseArray);
@@ -94,25 +79,25 @@
 
   // CHECKWIN FUNCTION
     function checkWin(){
-      const showing = document.querySelectorAll('.show');
+      const showing = docuemnt.querySelectorAll('.show');
       const letter = document.querySelectorAll('.letter');
       let newPhrase = getRandomPhraseArray(phrases);
-      if (showing.length === letter.length){
+      if(showing.length === letter.length){
         overlay.className = 'win';
         overlay.style.display = 'flex';
-        title.textContent = 'You Won!!!';
-        button.textContent = 'Restart';
-      }else if (missed === 5){
+        title.textContent = 'You have won!'
+        button.textContent = 'Restart'
+      } else if (missed === 5){
         overlay.className = 'lose';
         overlay.style.display = 'flex';
-        title.textContent = 'Maybe Next Time!!!';
-        button.textContent = 'Restart';
+        title.textContent = 'Maybe Next Time!'
+        button.textContent = 'Restart'
       }
 
       start.addEventListener('click', (e) => {
         missed = 0;
         phraseUL.textContent = '';
-        overlay.style.display = 'none';
+        overlay.styel.display = 'none';
         for(let i = 0; i < hearts.length; i++){
           hearts[i].src = 'images/liveHeart.png'
         }
@@ -124,7 +109,6 @@
       });
     }
 
-
 // KEYBOARD EVENT LISTENER
   qwerty.addEventListener('click', (e) => {
       let target = e.target;
@@ -132,7 +116,7 @@
       let guess = checkLetter(button);
       if(target.type === 'submit'){
         target.classList.add('chosen');
-        target.setAttribute('disabled', ' ');
+        target.setAttribute('disabled', '');
 
         let letterFound = checkLetter(button);
         if(letterFound === null){
