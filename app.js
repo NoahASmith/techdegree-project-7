@@ -114,7 +114,7 @@
         phraseUL.textContent = '';
         overlay.style.display = 'none';
         for(let i = 0; i < hearts.length; i++){
-          hearts[i].src = 'images/liveHeart.png'
+          hearts[i].src = 'images/liveHeart.png';
         }
         for(i = 0; i < qwertyButtons.length; i++){
           qwertyButtons[i].removeAttribute('class');
