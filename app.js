@@ -4,8 +4,7 @@
 //Variables
   const title = document.querySelector('.title');
 
-  const start = document.querySelector('.btn__reset');
-  const button = document.querySelector('.btn__reset');
+  const resetButton = document.querySelector('.btn__reset');
   const overlay = document.getElementById('overlay');
 
   const qwerty = document.getElementById('qwerty');
@@ -21,7 +20,7 @@
 
 //EVENT LISTENERS
   // THE GAME OVERLAY BUTTON CLICK
-    start.addEventListener('click', (e) => {
+    resetButton.addEventListener('click', (e) => {
         overlay.style.display = 'none';
       });
 
@@ -91,15 +90,15 @@
         overlay.className = 'win';
         overlay.style.display = 'flex';
         title.textContent = 'You Won!!!';
-        button.textContent = 'Restart';
+        resetButton.textContent = 'Restart';
       }else if (missed === 5){
         overlay.className = 'lose';
         overlay.style.display = 'flex';
         title.textContent = 'Maybe Next Time!!!';
-        button.textContent = 'Restart';
+        resetButton.textContent = 'Restart';
       }
 
-      start.addEventListener('click', (e) => {
+      resetButton.addEventListener('click', (e) => {
         missed = 0;
         phraseUL.textContent = '';
         overlay.style.display = 'none';
